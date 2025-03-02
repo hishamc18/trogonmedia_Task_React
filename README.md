@@ -1,6 +1,7 @@
 Live: https://trogonmedia-task-react-git-main-leofy18s-projects.vercel.app/
 
-![photo-collage png](https://github.com/user-attachments/assets/928c8804-0786-4001-8bf8-3972d35c7835)
+![WhatsApp Image 2025-03-02 at 16 04 18](https://github.com/user-attachments/assets/e1cd9c8a-268d-4d5f-9a5c-f9079f9cee27)
+
 
 
 
