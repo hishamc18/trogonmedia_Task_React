@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchSubjects, fetchModules } from "../redux/slices/subjectSlice";
@@ -10,6 +10,15 @@ const Modules = () => {
     const navigate = useNavigate();
     const { subjectId } = useParams();
     const { subjects, modules, loading, error } = useSelector((state) => state.subjects);
+
+    const [bgLoaded, setBgLoaded] = useState(false);
+
+    // Preload background image
+    useEffect(() => {
+        const img = new Image();
+        img.src = "/modulesBG.png";
+        img.onload = () => setBgLoaded(true);
+    }, []);
 
     useEffect(() => {
         if (subjects.length === 0) {
@@ -25,12 +34,15 @@ const Modules = () => {
 
     const selectedSubject = subjects.find((subject) => subject.id === Number(subjectId));
 
-    if (loading || !modules.length) return <Loader />;
-    if (error) return <p>Error: {error}</p>;
-    if (!selectedSubject) return <p>Subject not found.</p>;
+    if (!bgLoaded || loading || !modules.length) return <Loader />;
+    if (error) return <p className="text-red-500 text-center">{error}</p>;
+    if (!selectedSubject) return <p className="text-red-500 text-center">Subject not found.</p>;
 
     return (
-        <div className="relative min-h-screen bg-[url('/modulesBG.png')] bg-cover h-full bg-fixed bg-center text-white flex flex-col items-center px-4">
+        <div
+            className="relative min-h-screen bg-cover h-full bg-fixed bg-center text-white flex flex-col items-center px-4"
+            style={{ backgroundImage: `url('/modulesBG.png')` }}
+        >
             {/* Back Button and Title */}
             <div className="w-full sticky top-0 z-10 flex flex-col items-center mb-14 py-4">
                 <button className="absolute top-4 left-0 p-2 rounded-full" onClick={() => navigate(-1)}>
@@ -47,10 +59,8 @@ const Modules = () => {
                         return (
                             <div key={module.id} className="relative flex w-full items-center">
                                 {/* Mobile: Curved Arrow */}
-                                {/* Arrow Connector */}
                                 {index !== 0 && modules.length > 0 && (
                                     <>
-                                        {/* Mobile: Curved Arrow */}
                                         <svg
                                             className="absolute -top-24 left-1/2 transform scale-x-55 -translate-x-1/2 block lg:hidden"
                                             width="350"
@@ -74,7 +84,6 @@ const Modules = () => {
                                             />
                                         </svg>
 
-                                        {/* Large Screens: Inclined Arrow */}
                                         <svg
                                             className="absolute -top-15 left-1/2 transform -translate-x-1/2 hidden lg:block"
                                             width="350"
@@ -97,10 +106,8 @@ const Modules = () => {
                                         isLeftToRight ? "justify-end ml-auto" : "justify-start mr-auto"
                                     }`}
                                 >
-                                    {/* Title */}
                                     <p className="text-[12px] font-bold text-center mb-2">{module.title}</p>
 
-                                    {/* Check Box */}
                                     <div className="w-12 h-12 bg-white flex items-center justify-center border-[3px] border-[#E4B5F9] rounded-full shadow-md">
                                         <IoCheckmarkSharp className="text-[#950DDB] text-[22px] font-extrabold" />
                                     </div>

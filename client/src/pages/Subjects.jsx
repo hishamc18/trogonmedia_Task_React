@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchSubjects } from "../redux/slices/subjectSlice";
 import { useNavigate } from "react-router-dom";
@@ -10,15 +10,29 @@ const Subjects = () => {
     const navigate = useNavigate();
     const { subjects, loading, error } = useSelector((state) => state.subjects);
 
-    useEffect(() => {
-        dispatch(fetchSubjects());
-    }, [dispatch]);
+    const [bgLoaded, setBgLoaded] = useState(false);
 
-    if (loading) return <Loader />;
+    // Preload background image
+    useEffect(() => {
+        const img = new Image();
+        img.src = "/subjectBg.png";
+        img.onload = () => setBgLoaded(true);
+    }, []);
+
+    useEffect(() => {
+        if (bgLoaded) {
+            dispatch(fetchSubjects());
+        }
+    }, [dispatch, bgLoaded]);
+
+    if (!bgLoaded || loading) return <Loader />;
     if (error) return <p className="text-red-500 text-center">{error}</p>;
 
     return (
-        <div className="relative min-h-screen bg-[url('/subjectBg.png')] bg-cover h-full bg-fixed bg-center">
+        <div
+            className="relative min-h-screen bg-cover h-full bg-fixed bg-center"
+            style={{ backgroundImage: `url('/subjectBg.png')` }}
+        >
             {/* Page Title */}
             <div className="bg-[#771EAE] py-4 fixed top-0 left-0 w-full shadow-md z-10">
                 <h2 className="text-white text-2xl font-semibold text-center">Subjects</h2>
