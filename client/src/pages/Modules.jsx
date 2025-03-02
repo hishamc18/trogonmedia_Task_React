@@ -46,7 +46,7 @@ const Modules = () => {
             {/* Back Button and Title */}
             <div className="w-full sticky top-0 z-10 flex flex-col items-center mb-14 py-4">
                 <button className="absolute top-4 left-0 p-2 rounded-full" onClick={() => navigate(-1)}>
-                    <IoChevronBackCircleOutline className="text-white text-[30px]" />
+                    <IoChevronBackCircleOutline className="text-gray-300 text-[33px]" />
                 </button>
                 <h2 className="text-xl font-bold mt-2">{selectedSubject.title}</h2>
             </div>
@@ -62,16 +62,16 @@ const Modules = () => {
                                 {index !== 0 && modules.length > 0 && (
                                     <>
                                         <svg
-                                            className="absolute -top-24 left-1/2 transform scale-x-55 -translate-x-1/2 block lg:hidden"
+                                            className="absolute -top-22 left-1/2 transform scale-x-55 -translate-x-1/2 block lg:hidden"
                                             width="350"
                                             height="150"
-                                            viewBox="0 0 220 130"
+                                            viewBox="0 0 210 130"
                                         >
                                             <path
                                                 d={
                                                     isLeftToRight
-                                                        ? "M0,10 C0,100 90,100 180,110"
-                                                        : "M210,10 C210,100 110,100 20,110"
+                                                        ? "M0,10 C0,110 90,120 180,110"
+                                                        : "M210,10 C230,100 110,110 20,110"
                                                 }
                                                 stroke="yellow"
                                                 strokeWidth="2"
@@ -106,9 +106,9 @@ const Modules = () => {
                                         isLeftToRight ? "justify-end ml-auto" : "justify-start mr-auto"
                                     }`}
                                 >
-                                    <p className="text-[12px] font-bold text-center mb-2">{module.title}</p>
+                                    <p className="text-[11px] text-[#F2DFFB]] font-bold text-center mb-2">{module.title}</p>
 
-                                    <div className="w-12 h-12 bg-white flex items-center justify-center border-[3px] border-[#E4B5F9] rounded-full shadow-md">
+                                    <div className="w-11 h-11 bg-white flex items-center justify-center border-[4px] border-[#E4B5F9] rounded-full shadow-md">
                                         <IoCheckmarkSharp className="text-[#950DDB] text-[22px] font-extrabold" />
                                     </div>
                                 </div>
@@ -120,9 +120,9 @@ const Modules = () => {
 
             {/* Continue Button */}
             {modules.length > 0 && (
-                <div className="w-full p-4 sticky bottom-0 flex justify-center">
+                <div className=" w-full p-4 mb-5 sticky bottom-3 flex justify-center">
                     <button
-                        className="px-10 py-3 bg-[#F2DFFB] text-[#950CE0] text-[15px] font-bold rounded-lg shadow-md"
+                        className="w-full py-3 bg-[#F2DFFB] text-[#950CE0] text-[15px] font-bold rounded-lg shadow-md"
                         onClick={() => navigate(`/module-videos/${subjectId}`)}
                     >
                         Continue

@@ -31,7 +31,7 @@ const ModuleVideos = () => {
         <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#E8CBF9] to-white">
             {/* Back Button */}
             <div className="relative flex items-center justify-between py-4 px-5">
-                <button className="text-black text-xl" onClick={() => navigate(-1)}>
+                <button className="text-black text-[28px]" onClick={() => navigate(-1)}>
                     <IoIosArrowBack />
                 </button>
                 <img src="/logoEye.png" alt="Logo" className="w-15 h-15 mx-auto" />
@@ -40,8 +40,8 @@ const ModuleVideos = () => {
             {/* Title Section */}
             <div className="flex flex-col items-center">
                 <div className="px-6 w-full mb-6 mt-10 flex flex-col items-start md:items-center">
-                    <h3 className="text-gray-500 font-semibold text-[14px]">Level I</h3>
-                    <h2 className="text-[18px] ml-2 font-extrabold text-black">
+                    <h3 className="text-gray-500 font-semibold text-[15px]">Level I</h3>
+                    <h2 className="text-[22px] ml-2 font-extrabold text-black">
                         {selectedSubject?.title || "Subject Name"}
                     </h2>
                 </div>
@@ -57,7 +57,7 @@ const ModuleVideos = () => {
                             >
                                 {/* Steps */}
                                 <div className="flex flex-col items-center">
-                                    <GoCheckCircleFill className="text-[#950CE0] text-3xl border-[2px] border-[#E4B5F9] rounded-2xl" />
+                                    <GoCheckCircleFill className="text-[#950CE0] text-[40px] border-[3px] border-[#E4B5F9] rounded-4xl" />
                                     {index !== modules.length - 1 && (
                                         <div className="w-[3px] flex-grow h-[45px] -mt-[1px] bg-purple-600"></div>
                                     )}
@@ -77,8 +77,8 @@ const ModuleVideos = () => {
                     )}
                 </div>
                 {/* Continue Button */}
-                <div className="mt-auto w-[300px] p-6">
-                    <button className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold text-lg">
+                <div className="mt-auto w-full px-6 py-2 absolute bottom-0 left-0 fixed">
+                    <button className="w-full bg-purple-600 text-white py-3 rounded-lg font-bold text-[15px]">
                         Continue
                     </button>
                 </div>

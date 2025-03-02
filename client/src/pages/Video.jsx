@@ -92,13 +92,13 @@ const Video = () => {
                     className="flex w-full items-center justify-center bg-white px-4 py-4 rounded-lg shadow-md shadow-gray-700/60 hover:bg-gray-300"
                     onClick={() => alert("Doubts? Feature coming soon!")}
                 >
-                    <MdFileDownload className="mr-1 text-xl" /> Download
+                    <MdFileDownload className="mr-1 text-[25px]" /> Download
                 </button>
                 <button
                     className="flex w-full items-center justify-center bg-white px-4 py-4 rounded-lg shadow-md shadow-gray-700/50 hover:bg-yellow-200"
                     onClick={() => alert("Doubts? Feature coming soon!")}
                 >
-                    <BsFillQuestionCircleFill className="mr-1 text-xl text-amber-400" /> Doubts
+                    <BsFillQuestionCircleFill className="mr-1 text-[25px] text-amber-400" /> Doubts
                 </button>
             </div>
         </div>
