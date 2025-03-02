@@ -47,7 +47,7 @@ const ModuleVideos = () => {
                 </div>
 
                 {/* Modules List */}
-                <div className="flex flex-col px-6 mt-6">
+                <div className="flex flex-col px-6 mt-6 mb-20">
                     {modules.length > 0 ? (
                         modules.map((module, index) => (
                             <div
@@ -77,7 +77,7 @@ const ModuleVideos = () => {
                     )}
                 </div>
                 {/* Continue Button */}
-                <div className="mt-auto w-full px-6 py-2 absolute bottom-0 left-0 fixed">
+                <div className="w-full px-6 py-2 bottom-0 left-0 fixed">
                     <button className="w-full bg-purple-600 text-white py-3 rounded-lg font-bold text-[15px]">
                         Continue
                     </button>
